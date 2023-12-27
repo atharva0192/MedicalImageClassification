@@ -44,6 +44,7 @@ background-size: 100%;
 background-position: top left;
 background-repeat: no-repeat;
 background-attachment: local;
+background: rgba(0,0,0,0.5);
 }}
 
 [data-testid="stHeader"] {{
