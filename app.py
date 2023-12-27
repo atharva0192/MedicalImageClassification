@@ -20,10 +20,10 @@ def predict(image):
 
     y_predict= []
     for ele in predictions:
-    if ele>=0.5 :
-      y_predict.append(1)
-    else:
-      y_predict.append(0)
+        if ele>=0.5 :
+          y_predict.append(1)
+        else:
+          y_predict.append(0)
 
     return y_predict
 
