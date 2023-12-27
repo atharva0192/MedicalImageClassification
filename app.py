@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 
 # Load the saved model
-model = tf.keras.models.load_model('MYCNN.h5')
+model = tf.keras.models.load_model('MyCNN.h5')
 
 # Define a function for model inference
 def predict(image):
