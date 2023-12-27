@@ -17,10 +17,7 @@ def predict(image):
 
     # Make predictions using the loaded model
     predictions = model.predict(img_array)
-    if predictions>=0.5 :
-        predictions=1
-    else:
-        predictions=0
+    
 
     return predictions
 
@@ -38,3 +35,7 @@ if uploaded_file is not None:
     # Display the prediction results
     st.write("Prediction Results:")
     st.write(result)
+    if predictions>=0.5 :
+        st.write("Normal")
+    else:
+        st.write("Normal")
