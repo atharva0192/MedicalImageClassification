@@ -22,7 +22,8 @@ def predict(image):
     return predictions
 
 # Streamlit app code
-st.title("Deep Learning Model Deployment")
+st.title("Deep Learning")
+st.header("Medical Image Classification")
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if uploaded_file is not None:
