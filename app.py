@@ -34,7 +34,7 @@ if uploaded_file is not None:
 
     # Display the prediction results
     st.write("Prediction Results:")
-    st.write(result)
+    st.write(result.round(3))
     if result>=0.5 :
         st.write("Normal")
     else:
