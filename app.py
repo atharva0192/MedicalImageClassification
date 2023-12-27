@@ -18,7 +18,14 @@ def predict(image):
     # Make predictions using the loaded model
     predictions = model.predict(img_array)
 
-    return predictions
+    y_predict= []
+    for ele in predictions:
+    if ele>=0.5 :
+      y_predict.append(1)
+    else:
+      y_predict.append(0)
+
+    return y_predict
 
 # Streamlit app code
 st.title("Deep Learning Model Deployment")
