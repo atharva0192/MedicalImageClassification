@@ -1,5 +1,6 @@
 import streamlit as st
 import tensorflow as tf
+import base64
 from PIL import Image
 import numpy as np
 
@@ -22,6 +23,37 @@ def predict(image):
     return predictions
 
 # Streamlit app code
+def get_img_as_base64(file):
+    with open(file, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+
+img = get_img_as_base64("image.jpg")
+
+page_bg_img = f"""
+<style>
+[data-testid="stAppViewContainer"] > .main {{
+background-image: url("data:image/png;base64,{img}");
+background-size: 180%;
+background-position: top left;
+background-repeat: no-repeat;
+background-attachment: local;
+}}
+
+[data-testid="stHeader"] {{
+background: rgba(0,0,0,0);
+}}
+
+[data-testid="stToolbar"] {{
+right: 2rem;
+}}
+</style>
+"""
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
 st.title("Deep Learning")
 st.header("Medical Image Classification")
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
