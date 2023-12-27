@@ -30,6 +30,8 @@ def get_img_as_base64(file):
 
 
 img = get_img_as_base64("image.jpg")
+st.title("Deep Learning")
+st.header("Medical Image Classification")
 
 page_bg_img = f"""
 <style>
@@ -56,8 +58,7 @@ background: rgba(255,255,255,0.5);
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
-st.title("Deep Learning")
-st.header("Medical Image Classification")
+
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if uploaded_file is not None:
