@@ -23,6 +23,8 @@ def predict(image):
     return predictions
 
 # Streamlit app code
+
+
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
@@ -58,19 +60,19 @@ background: rgba(255,255,255,0.5);
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
-
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
-
 if uploaded_file is not None:
-    # Display the uploaded image
-    st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True)
+    col1, col2 = st.beta_columns(2)
+    with col1:
+        st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True, output_format="JPEG", width=300)
     
-    # Perform prediction
-    result = predict(uploaded_file)
-
-    # Display the prediction results
-    st.write("Prediction Results:")
-    if result>=0.5 :
-        st.write("Normal : 1")
-    else:
-        st.write("Infected : 0")
+    with col2:
+        st.write("Prediction Results:")
+        if result >= 0.5:
+            st.success("Normal : 1")
+        else:
+            st.error("Infected : 0")
+    
+st.markdown("---")
+st.write("Developed by Atharva Chavan")
+st.write("Copyright © 2023. All rights reserved.")
