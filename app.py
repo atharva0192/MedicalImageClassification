@@ -35,8 +35,6 @@ if uploaded_file is not None:
     # Display the prediction results
     st.write("Prediction Results:")
     if result>=0.5 :
-        st.write("Normal")
-        st.write(1)
+        st.write("Normal : 1")
     else:
-        st.write("Normal")
-        st.write(0)
+        st.write("Infected : 0")
