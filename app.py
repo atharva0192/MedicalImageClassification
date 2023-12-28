@@ -65,7 +65,7 @@ st.sidebar.write(
 st.markdown(
     f'''
         <style>
-            .sidebar .sidebar-content {{
+            .sidebar {{
                 width: 400px;
             }}
         </style>
