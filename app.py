@@ -51,7 +51,7 @@ if uploaded_file is not None:
         status_text = st.empty()
         chart = st.line_chart(np.random.randn(10, 2))
         
-        for i in range(50):
+        for i in range(100):
             # Update progress bar.
             progress_bar.progress(i + 1)
         
