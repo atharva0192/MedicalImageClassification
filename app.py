@@ -56,8 +56,7 @@ with st.sidebar:
 st.title("Classification of Medical X-Rays")
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
-st.image("./ConfusionMatrix.png", use_column_width=True)
-st.image("./Graphs.png", use_column_width=True)
+
 if uploaded_file is not None:
     # Display the uploaded image with border
     st.image(uploaded_file, caption="Uploaded Image", use_column_width=True, output_format="JPEG")
@@ -85,7 +84,8 @@ if uploaded_file is not None:
         else :
             st.snow()
             st.warning(f'Warning : The image is predicted as {prediction_label}', icon="⚠️")
-
+st.image("./ConfusionMatrix.png", use_column_width=True)
+st.image("./Graphs.png", use_column_width=True)
 # Footer
 st.markdown("---")
 st.write("Developed by Atharva Chavan")
