@@ -59,7 +59,7 @@ if uploaded_file is not None:
         
             # Update status text.
             status_text.text(
-                f'Progress: %{i*}')
+                f'Progress: %{i}')
         
             # Append data to the chart.
             chart.add_rows(new_rows)
