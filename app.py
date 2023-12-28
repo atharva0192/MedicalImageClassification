@@ -97,8 +97,14 @@ if uploaded_file is not None:
         else :
             st.snow()
             st.warning(f'Warning : The image is predicted as {prediction_label}', icon="⚠️")
-st.image("./ConfusionMatrix.png", use_column_width=True)
-st.image("./Graphs.png", use_column_width=True)
+          
+expander = st.expander("View Training , Validation and Testing Results")
+expander.write(Following are the results : )
+expander.write(Confusion Matrix: )                      
+expander.image("./ConfusionMatrix.png", use_column_width=True)
+expander.write(Graphs: )    
+expander.image("./Graphs.png", use_column_width=True)
+
 # Footer
 st.markdown("---")
 st.write("Developed by Atharva Chavan")
