@@ -70,7 +70,7 @@ if uploaded_file is not None:
         for i in range(100):
             progress_bar.progress(i + 1)
             status_text.text(f'Progress: {i}%')
-            time.sleep(0.03)
+            time.sleep(0.00)
         
         status_text.text('Done!')
         
