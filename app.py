@@ -13,9 +13,20 @@ url = requests.get(
 # Creating a blank dictionary to store JSON file, 
 # as their structure is similar to Python Dictionary 
 url_json = dict() 
+
+back = requests.get( 
+    "https://lottie.host/0ea6f299-fe52-414e-8063-f54283c7c577/YTa5T7FZRz.json") 
+# Creating a blank dictionary to store JSON file, 
+# as their structure is similar to Python Dictionary 
+back_json = dict() 
   
 if url.status_code == 200: 
     url_json = url.json() 
+else: 
+    print("Error in the URL") 
+
+if back.status_code == 200: 
+    back_json = back.json() 
 else: 
     print("Error in the URL") 
 # Load the saved model
@@ -53,6 +64,9 @@ with st.sidebar:
               height=200, 
               width=200)
 # Main content
+st_lottie(back_json , 
+              height=200, 
+              width=200)
 st.title("Classification of Medical X-Rays")
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
