@@ -15,7 +15,7 @@ url = requests.get(
 url_json = dict() 
 
 back = requests.get( 
-    "https://lottie.host/0ea6f299-fe52-414e-8063-f54283c7c577/YTa5T7FZRz.json") 
+    "https://lottie.host/dc8eb2d2-dc26-4bff-a908-20668f49437a/7rui3mxxXI.json") 
 # Creating a blank dictionary to store JSON file, 
 # as their structure is similar to Python Dictionary 
 back_json = dict() 
