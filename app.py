@@ -65,8 +65,8 @@ with st.sidebar:
               width=200)
 # Main content
 st_lottie(back_json , 
-              height=200, 
-              width=200)
+              height=400, 
+              width=400)
 st.title("Classification of Medical X-Rays")
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
