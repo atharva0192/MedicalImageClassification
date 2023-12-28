@@ -9,7 +9,7 @@ import requests
 from streamlit_lottie import st_lottie 
   
 url = requests.get( 
-    "https://assets2.lottiefiles.com/packages/lf20_mDnmhAgZkb.json") 
+    "https://lottie.host/0ea6f299-fe52-414e-8063-f54283c7c577/YTa5T7FZRz.json") 
 # Creating a blank dictionary to store JSON file, 
 # as their structure is similar to Python Dictionary 
 url_json = dict() 
@@ -47,7 +47,7 @@ st.sidebar.title("Classification of Medical X-Rays")
 st.sidebar.write(
     "In recent years, the intersection of medical imaging and deep learning has witnessed unprecedented advancements, revolutionizing the landscape of healthcare. One notable application that has gained substantial attention is medical image classification using Convolutional Neural Networks (CNNs). As we embark on this project, we delve into the realm of leveraging cutting-edge deep learning techniques to augment traditional medical image analysis"
 )
-st.sidebar.st_lottie(url_json)
+.st_lottie(url_json)
 # Main content
 st.title("Classification of Medical X-Rays")
 
