@@ -72,7 +72,7 @@ if uploaded_file is not None:
         # Display the prediction results
         st.write("Prediction Results:")
         prediction_label = "Normal" if result >= 0.5 else "Infected"
-        if prediction label == "Normal":
+        if prediction_label == "Normal":
             st.balloons()
             st.success(f"The image is predicted as {prediction_label}")
         else :
