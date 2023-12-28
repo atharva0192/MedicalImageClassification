@@ -68,11 +68,16 @@ if uploaded_file is not None:
             time.sleep(0.1)
         
         status_text.text('Done!')
-        st.balloons()
+        
         # Display the prediction results
         st.write("Prediction Results:")
         prediction_label = "Normal" if result >= 0.5 else "Infected"
-        st.success(f"The image is predicted as {prediction_label}")
+        if prediction label == "Normal":
+            st.balloons()
+            st.success(f"The image is predicted as {prediction_label}")
+        else :
+            st.snow()
+            st.warning(f'Warning : The image is predicted as {prediction_label}', icon="⚠️")
 
 # Footer
 st.markdown("---")
