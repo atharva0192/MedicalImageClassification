@@ -23,8 +23,7 @@ def predict(image):
 
 # Streamlit app code
 st.set_page_config(
-    page_title="Malaria Detection App",
-    page_icon="🩸",
+    page_title="Classification of Medical X-Rays",
     layout="centered",
     initial_sidebar_state="expanded",
 )
@@ -42,7 +41,7 @@ uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if uploaded_file is not None:
     # Display the uploaded image with border
-    st.image(uploaded_file, caption="Uploaded Image", use_column_width=True, output_format="JPEG", width=300, border_radius=10)
+    st.image(uploaded_file, caption="Uploaded Image", use_column_width=True, output_format="JPEG")
 
     # Perform prediction
     if st.button("Predict"):
