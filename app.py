@@ -56,8 +56,8 @@ st.set_page_config(
 # Sidebar
 with st.sidebar: 
     st_lottie(back_json , 
-              height=400, 
-              width=400)
+              height=350, 
+              width=350)
 st.sidebar.title("Classification of Medical X-Rays")
 st.sidebar.write(
     "In recent years, the intersection of medical imaging and deep learning has witnessed unprecedented advancements, revolutionizing the landscape of healthcare. One notable application that has gained substantial attention is medical image classification using Convolutional Neural Networks (CNNs). As we embark on this project, we delve into the realm of leveraging cutting-edge deep learning techniques to augment traditional medical image analysis"
@@ -99,10 +99,10 @@ if uploaded_file is not None:
             st.warning(f'Warning : The image is predicted as {prediction_label}', icon="⚠️")
           
 expander = st.expander("View Training , Validation and Testing Results")
-expander.write(Following are the results : )
-expander.write(Confusion Matrix: )                      
+expander.write("Following are the results : ")
+expander.write("Confusion Matrix: ")                      
 expander.image("./ConfusionMatrix.png", use_column_width=True)
-expander.write(Graphs: )    
+expander.write("Graphs: ")    
 expander.image("./Graphs.png", use_column_width=True)
 
 # Footer
