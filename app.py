@@ -10,72 +10,50 @@ model = tf.keras.models.load_model('MyCNN.h5')
 # Define a function for model inference
 def predict(image):
     # Open and preprocess the image
-    img = Image.open(image).convert('RGB')  # Ensure image is in RGB format
-    img = img.resize((256, 256))  # Resize image to match model input size
-    img_array = np.array(img)  # Convert image to NumPy array
+    img = Image.open(image).convert('RGB')  # Ensure the image is in RGB format
+    img = img.resize((256, 256))  # Resize the image to match the model input size
+    img_array = np.array(img)  # Convert the image to a NumPy array
     img_array = img_array / 255.0  # Normalize pixel values to the range [0, 1]
-    img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
+    img_array = np.expand_dims(img_array, axis=0)  # Add a batch dimension
 
     # Make predictions using the loaded model
     predictions = model.predict(img_array)
-    
 
     return predictions
 
 # Streamlit app code
-def get_img_as_base64(file):
-    with open(file, "rb") as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
+st.set_page_config(
+    page_title="Malaria Detection App",
+    page_icon="🩸",
+    layout="centered",
+    initial_sidebar_state="expanded",
+)
 
+# Sidebar
+st.sidebar.title("Classification of Medical X-Rays")
+st.sidebar.write(
+    "In recent years, the intersection of medical imaging and deep learning has witnessed unprecedented advancements, revolutionizing the landscape of healthcare. One notable application that has gained substantial attention is medical image classification using Convolutional Neural Networks (CNNs). As we embark on this project, we delve into the realm of leveraging cutting-edge deep learning techniques to augment traditional medical image analysis"
+)
 
-img = get_img_as_base64("image.jpg")
-st.title("Deep Learning")
-st.header("Medical Image Classification")
-
-page_bg_img = f"""
-<style>
-[data-testid="stAppViewContainer"] > .main {{
-background-image: url("data:image/png;base64,{img}");
-background-opacity: 0.5;
-background-size: 100%;
-background-position: top left;
-background-repeat: no-repeat;
-background-attachment: local;
-}}
-
-[data-testid="stHeader"] {{
-background: rgba(0,0,0,0.5);
-}}
-
-[data-testid="stTitle"] {{
-background: rgba(255,255,255,0.5);
-}}
-
-</style>
-"""
-
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
-
+# Main content
+st.title("Classification of Medical X-Rays")
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if uploaded_file is not None:
-    # Display the uploaded image
-    st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True)
-    
+    # Display the uploaded image with border
+    st.image(uploaded_file, caption="Uploaded Image", use_column_width=True, output_format="JPEG", width=300, border_radius=10)
+
     # Perform prediction
-    result = predict(uploaded_file)
+    if st.button("Predict"):
+        result = predict(uploaded_file)
 
-    # Display the prediction results
-    st.write("Prediction Results:")
-    if result>=0.5 :
-        st.write("Normal")
-    else:
-        st.write("Infected ")
+        # Display the prediction results
+        st.write("Prediction Results:")
+        prediction_label = "Normal" if result >= 0.5 else "Infected"
+        st.success(f"The image is predicted as {prediction_label}")
 
+# Footer
 st.markdown("---")
-st.write("Developed by Your Name")
+st.write("Developed by Atharva Chavan")
 st.write("Copyright © 2023. All rights reserved.")
-
