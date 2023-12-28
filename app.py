@@ -59,13 +59,13 @@ if uploaded_file is not None:
         
             # Update status text.
             status_text.text(
-                f'Progress:%{i*2} %s')
+                f'Progress: %{i*}')
         
             # Append data to the chart.
             chart.add_rows(new_rows)
         
             # Pretend we're doing some computation that takes time.
-            time.sleep(0.1)
+            time.sleep(0.03)
         
         status_text.text('Done!')
         
